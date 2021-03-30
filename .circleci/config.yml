@@ -15,12 +15,10 @@ jobs:
         - image: cimg/node:15.11.0
       steps:
         - checkout
-        - run: node --version
-        
         - run: 
            name: Installing Dependecies
            command: npm install
        
        - run: 
-          name: Running Tests
+          name: Running Test
           command: npm run test
