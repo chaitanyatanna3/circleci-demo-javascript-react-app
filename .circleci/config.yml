@@ -18,3 +18,11 @@ jobs:
         - run: 
            name: Installing Dependecies
            command: npm install
+        - restore_cache:
+            keys: 
+              - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+        - save_cache:
+            paths: 
+              - ~/user/local/lib/node_modules
+            keys: 
+              - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
