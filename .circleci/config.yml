@@ -13,6 +13,22 @@ workflows:
     jobs:
       - test
 
+working_directory: /tmp
+    steps:
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/artifact-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+
+      - store_artifacts:
+          path: /tmp/artifact-1
+          destination: artifact-file
+
+      - store_artifacts:
+          path: /tmp/artifacts
+
 
 jobs:
   test:
