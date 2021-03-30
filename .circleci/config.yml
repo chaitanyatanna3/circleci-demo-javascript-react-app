@@ -23,6 +23,6 @@ jobs:
               - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
         - save_cache:
             paths: 
-              - ~/user/local/lib/node_modules
+              - ~/.circleci/config.yml
             keys: 
               - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
