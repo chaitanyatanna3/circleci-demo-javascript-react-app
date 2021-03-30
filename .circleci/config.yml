@@ -8,6 +8,7 @@ workflows:
     when: 
       and: 
         - equal: [ main, << pipeline.git.branch >> ]
+        - << pipeline.parameters.deploy >>
         
     jobs:
       - test
